@@ -7,12 +7,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.practiceapp1.cleanarchitecture.data.model.Item
+import com.example.practiceapp1.cleanarchitecture.data.model.MainGitHubData
 import com.example.practiceapp1.databinding.ItemGithubBinding
 
 /**
  * Created by Asif Khan on 04/11/23.
  */
-class GithubAdapter(private val context: Context, private val list: List<Item>) :
+class GithubAdapter(private val context: Context, private val list: List<MainGitHubData>) :
     RecyclerView.Adapter<GithubAdapter.MyViewHolder>() {
 
     inner class MyViewHolder(val binding: ItemGithubBinding) :
@@ -30,7 +31,7 @@ class GithubAdapter(private val context: Context, private val list: List<Item>) 
             with(list[position]) {
                 // set image
                 Glide.with(context)
-                    .load(owner.avatar_url)
+                    .load(imageUrl)
                     .apply(RequestOptions.circleCropTransform())
                     .into(binding.imageViewIcon)
 

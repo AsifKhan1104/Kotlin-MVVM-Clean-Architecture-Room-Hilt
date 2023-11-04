@@ -80,6 +80,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.0")
     implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation ("androidx.room:room-runtime:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
     kapt ("androidx.room:room-compiler:$roomVersion")
 
     testImplementation("junit:junit:4.13.2")

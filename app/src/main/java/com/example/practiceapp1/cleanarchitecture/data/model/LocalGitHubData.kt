@@ -1,4 +1,4 @@
-package com.example.practiceapp1.cleanarchitecture.data.source.local
+package com.example.practiceapp1.cleanarchitecture.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

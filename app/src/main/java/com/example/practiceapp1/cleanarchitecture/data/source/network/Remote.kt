@@ -8,7 +8,7 @@ import retrofit2.http.Query
 /**
  * Created by Asif Khan on 03/11/23.
  */
-interface Api {
+interface Remote {
 
     @GET("/search/repositories")
     suspend fun getGitHubList(@Query("q") queryParam: String): Response<GithubData>

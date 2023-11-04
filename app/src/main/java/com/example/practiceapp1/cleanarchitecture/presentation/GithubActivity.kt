@@ -10,7 +10,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.practiceapp1.cleanarchitecture.util.DataHandler
-import com.example.practiceapp1.cleanarchitecture.data.model.GithubData
 import com.example.practiceapp1.databinding.ActivityGithubBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -38,7 +37,7 @@ class GithubActivity : AppCompatActivity() {
                                 layoutManager = LinearLayoutManager(this@GithubActivity)
                                 adapter = GithubAdapter(
                                     this@GithubActivity,
-                                    (it.data as GithubData).items
+                                    it.data!!
                                 )
                             }
                         }

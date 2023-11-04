@@ -1,7 +1,7 @@
 package com.example.practiceapp1.cleanarchitecture.di
 
 import com.example.practiceapp1.cleanarchitecture.util.Constants
-import com.example.practiceapp1.cleanarchitecture.data.source.network.Api
+import com.example.practiceapp1.cleanarchitecture.data.source.network.Remote
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,7 +16,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object ApiService {
+object NetworkModule {
 
     @Singleton
     @Provides
@@ -35,7 +35,7 @@ object ApiService {
 
     @Singleton
     @Provides
-    fun providesApiService(retrofit: Retrofit): Api {
-        return retrofit.create(Api::class.java)
+    fun providesApiService(retrofit: Retrofit): Remote {
+        return retrofit.create(Remote::class.java)
     }
 }

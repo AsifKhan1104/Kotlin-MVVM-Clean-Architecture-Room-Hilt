@@ -5,7 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import kotlinx.coroutines.flow.Flow
+import com.example.practiceapp1.cleanarchitecture.data.model.LocalGitHubData
 
 /**
  * Created by Asif Khan on 04/11/23.
@@ -27,5 +27,5 @@ interface GitHubDao {
     fun deleteAllData()
 
     @Query("Select * from github_table")
-    fun getAllData(): Flow<List<LocalGitHubData>>
+    fun getAllData(): List<LocalGitHubData>
 }

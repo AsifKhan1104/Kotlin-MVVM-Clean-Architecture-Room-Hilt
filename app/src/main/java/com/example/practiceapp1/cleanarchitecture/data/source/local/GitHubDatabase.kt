@@ -5,6 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.example.practiceapp1.cleanarchitecture.data.model.LocalGitHubData
 
 /**
  * Created by Asif Khan on 04/11/23.

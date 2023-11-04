@@ -13,5 +13,5 @@ import javax.inject.Inject
 class GithubViewModel @Inject constructor(private val repository: GitHubRepository) : ViewModel() {
     val TAG = "GithubViewModel"
 
-    fun loadGitHubList(queryParam: String) = repository.fetchList(queryParam)
+    fun loadGitHubList(queryParam: String) = repository.fetchListRemote(queryParam)
 }
