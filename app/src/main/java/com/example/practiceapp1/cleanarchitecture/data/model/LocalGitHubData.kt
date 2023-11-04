@@ -11,7 +11,7 @@ import androidx.room.PrimaryKey
 data class LocalGitHubData(
     @PrimaryKey(autoGenerate = false) val id:Int? = null,
     val name: String,
-    val description: String,
+    val description: String? = "",
     val url: String,
     val imageUrl: String
 )

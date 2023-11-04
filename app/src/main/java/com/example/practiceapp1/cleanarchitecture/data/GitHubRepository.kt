@@ -2,11 +2,11 @@ package com.example.practiceapp1.cleanarchitecture.data
 
 import com.example.practiceapp1.cleanarchitecture.data.model.GithubData
 import com.example.practiceapp1.cleanarchitecture.data.model.Item
-import com.example.practiceapp1.cleanarchitecture.data.model.MainGitHubData
+import com.example.practiceapp1.cleanarchitecture.data.model.LocalGitHubData
 import com.example.practiceapp1.cleanarchitecture.data.source.local.GitHubDao
 import com.example.practiceapp1.cleanarchitecture.data.source.network.Remote
 import com.example.practiceapp1.cleanarchitecture.util.DataHandler
-import com.example.practiceapp1.cleanarchitecture.util.Extensions.toMainGitHubData
+import com.example.practiceapp1.cleanarchitecture.util.Extensions.toLocalGitHubData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -29,16 +29,18 @@ class GitHubRepository @Inject constructor(
             localDao.getAllData()
         }
 
-    fun fetchListRemote(queryParam: String): Flow<DataHandler<List<MainGitHubData>>> =
+    fun fetchListRemote(queryParam: String): Flow<DataHandler<List<LocalGitHubData>>> =
         flow {
             emit(DataHandler.LOADING())
             val response = remoteApi.getGitHubList(queryParam)
-            lateinit var result: DataHandler<List<MainGitHubData>>
+            lateinit var result: DataHandler<List<LocalGitHubData>>
 
             if (response.isSuccessful) {
                 val responseBody = response.body()
                 responseBody?.let {
-                    result = DataHandler.SUCCESS(getCorrectFormattedData(it.items))
+                    var formattedData = getCorrectFormattedData(it.items)
+                    result = DataHandler.SUCCESS(formattedData)
+                    localDao.insert(formattedData)
                 }
             } else {
                 result = DataHandler.FAILURE(msg = response.errorBody().toString())
@@ -46,10 +48,10 @@ class GitHubRepository @Inject constructor(
             emit(result)
         }.flowOn(Dispatchers.IO)
 
-    private fun getCorrectFormattedData(list: List<Item>): List<MainGitHubData> {
-        var finalList: MutableList<MainGitHubData> = ArrayList()
+    private fun getCorrectFormattedData(list: List<Item>): List<LocalGitHubData> {
+        var finalList: MutableList<LocalGitHubData> = ArrayList()
         for (item in list) {
-            finalList.add(item.toMainGitHubData())
+            finalList.add(item.toLocalGitHubData())
         }
         return finalList
     }

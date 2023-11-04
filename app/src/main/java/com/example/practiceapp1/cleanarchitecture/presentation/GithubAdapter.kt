@@ -6,14 +6,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.example.practiceapp1.cleanarchitecture.data.model.Item
-import com.example.practiceapp1.cleanarchitecture.data.model.MainGitHubData
+import com.example.practiceapp1.cleanarchitecture.data.model.LocalGitHubData
 import com.example.practiceapp1.databinding.ItemGithubBinding
 
 /**
  * Created by Asif Khan on 04/11/23.
  */
-class GithubAdapter(private val context: Context, private val list: List<MainGitHubData>) :
+class GithubAdapter(private val context: Context, private val list: List<LocalGitHubData>) :
     RecyclerView.Adapter<GithubAdapter.MyViewHolder>() {
 
     inner class MyViewHolder(val binding: ItemGithubBinding) :

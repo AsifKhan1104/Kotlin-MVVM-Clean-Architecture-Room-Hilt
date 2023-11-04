@@ -15,7 +15,7 @@ import com.example.practiceapp1.cleanarchitecture.data.model.LocalGitHubData
 interface GitHubDao {
 
     @Insert
-    fun insert(data: LocalGitHubData)
+    fun insert(data: List<LocalGitHubData>)
 
     @Update
     fun update(data: LocalGitHubData)
