@@ -27,13 +27,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".other.HigherOrderFunctionsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".other.MainActivity"
-            android:exported="false"
-            android:label="@string/app_name" />
     </application>
 
 </manifest>
