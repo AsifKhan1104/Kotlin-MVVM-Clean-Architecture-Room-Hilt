@@ -94,9 +94,14 @@ dependencies {
     testImplementation("androidx.arch.core:core-testing:2.2.0")
     androidTestImplementation("androidx.arch.core:core-testing:2.2.0")
 
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+
     testImplementation ("org.mockito:mockito-core:5.3.1")
     testImplementation ("org.mockito.kotlin:mockito-kotlin:5.1.0")
+    testImplementation("app.cash.turbine:turbine:1.0.0")
     androidTestImplementation("app.cash.turbine:turbine:1.0.0")
+
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.9.3")
 }
 
 // Allow references to generated code

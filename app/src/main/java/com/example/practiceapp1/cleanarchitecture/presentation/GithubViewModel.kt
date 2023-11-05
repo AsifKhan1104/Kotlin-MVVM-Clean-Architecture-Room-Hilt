@@ -14,6 +14,8 @@ class GithubViewModel @Inject constructor(private val repository: GitHubReposito
     val TAG = "GithubViewModel"
 
     fun loadGitHubListRemote(queryParam: String) = repository.fetchListRemoteAndSaveInDb(queryParam)
-    fun getList(queryParam: String) = repository.fetchListRemote(queryParam)
     fun loadGitHubList() = repository.fetchListLocal()
+
+    // For Unit Tests
+    fun getList(queryParam: String) = repository.fetchListRemote(queryParam)
 }
