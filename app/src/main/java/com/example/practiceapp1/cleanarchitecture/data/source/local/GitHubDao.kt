@@ -31,4 +31,7 @@ interface GitHubDao {
     // To observe changes in database, we use Flow
     @Query("Select * from github_table order by id")
     fun getAllData(): Flow<List<LocalGitHubData>>
+
+    @Query("Select name from github_table where id = :id")
+    fun getNameById(id: Int): String
 }
