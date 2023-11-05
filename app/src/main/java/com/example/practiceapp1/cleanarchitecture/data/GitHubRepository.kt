@@ -4,10 +4,13 @@ import com.example.practiceapp1.cleanarchitecture.data.model.Item
 import com.example.practiceapp1.cleanarchitecture.data.model.LocalGitHubData
 import com.example.practiceapp1.cleanarchitecture.data.source.local.GitHubDao
 import com.example.practiceapp1.cleanarchitecture.data.source.network.Remote
+import com.example.practiceapp1.cleanarchitecture.util.DataHandler
 import com.example.practiceapp1.cleanarchitecture.util.Extensions.toLocalGitHubData
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -24,7 +27,7 @@ class GitHubRepository @Inject constructor(
 ) {
     fun fetchListLocal(): Flow<List<LocalGitHubData>> = localDao.getAllData()
 
-    /*fun fetchListRemote(queryParam: String): Flow<DataHandler<List<LocalGitHubData>>> =
+    fun fetchListRemote(queryParam: String): Flow<DataHandler<List<LocalGitHubData>>> =
         flow {
             emit(DataHandler.LOADING())
             val response = remoteApi.getGitHubList(queryParam)
@@ -41,7 +44,7 @@ class GitHubRepository @Inject constructor(
                 result = DataHandler.FAILURE(msg = response.errorBody().toString())
             }
             emit(result)
-        }.flowOn(Dispatchers.IO)*/
+        }.flowOn(Dispatchers.IO)
 
 
     // fetches the data from network & stores in Room Db
