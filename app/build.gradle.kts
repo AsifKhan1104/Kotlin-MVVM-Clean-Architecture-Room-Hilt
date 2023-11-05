@@ -91,8 +91,12 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
+    testImplementation("androidx.arch.core:core-testing:2.2.0")
+    androidTestImplementation("androidx.arch.core:core-testing:2.2.0")
+
+    testImplementation ("org.mockito:mockito-core:5.3.1")
     testImplementation ("org.mockito.kotlin:mockito-kotlin:5.1.0")
-    androidTestImplementation("app.cash.turbine:turbine:0.12.1")
+    androidTestImplementation("app.cash.turbine:turbine:1.0.0")
 }
 
 // Allow references to generated code

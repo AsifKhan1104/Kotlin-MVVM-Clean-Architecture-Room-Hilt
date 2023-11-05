@@ -1,5 +1,6 @@
 package com.example.practiceapp1.cleanarchitecture.data.source.local
 
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import app.cash.turbine.test
@@ -10,12 +11,16 @@ import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Assert
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 
 /**
  * Created by Asif Khan on 05/11/23.
  */
 class GitHubDaoTest {
+
+    @get: Rule
+    val instantExecutorRule = InstantTaskExecutorRule()
 
     private lateinit var gitHubDatabase: GitHubDatabase
     private lateinit var gitHubDao: GitHubDao
